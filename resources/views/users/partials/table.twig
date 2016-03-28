@@ -1,0 +1,34 @@
+<p>Estas en la página {{ users.currentPage() }} de {{ users.lastPage() }}</p>
+
+<p>Hay {{ users.total() }} usuarios registrados</p>
+
+<table class="table table-striped">
+
+    <tr>
+        <th> ID       </th>
+        <th> Name     </th>
+        <th> ID Card  </th>
+        <th> Email    </th>
+        <th> Role     </th>
+        <th> Actions  </th>
+    </tr>
+
+    {% for user in users %}
+
+        <tr>
+            <td> {{ user.id|e }}       </td>
+            <td> {{ user.name|e }}     </td>
+            <td> {{ user.id_card|e }} </td>
+            <td> {{ user.email|e }}    </td>
+            <td> {{ user.role|e }}     </td>
+            <td>
+                <a href="edit/{{ user.id }}"   class="btn btn-info"> Update </a>
+                <a href="delete/{{ user.id }}" class="btn btn-danger">  Delete </a>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+{{ users.render()|raw }}
