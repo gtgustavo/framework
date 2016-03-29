@@ -1,12 +1,13 @@
 <?php
 
-use \App\Helpers\Migration\Migration;
+use App\Helpers\Migration\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class Users extends Migration
+class UserMigration extends Migration
 {
     public function up()
     {
-        $this->schema->create('users', function(Illuminate\Database\Schema\Blueprint $table){
+        $this->schema->create('users', function(Blueprint $table){
             $table->increments('id', 11);
             $table->string('name', 30);
             $table->string('phone', 11);

@@ -2,7 +2,7 @@
 
 namespace App\Helpers\Auth;
 
-use App\Models\Password;
+use App\Models\Password as PasswordRecovery;
 use Illuminate\Support\Str;
 
 class TokenRepository
@@ -13,7 +13,7 @@ class TokenRepository
 
         $token = self::createNewToken();
 
-        Password::create([
+        PasswordRecovery::create([
             'email'      => $email,
             'token'      => $token,
         ]);
@@ -24,7 +24,7 @@ class TokenRepository
 
     private function deleteExisting($email)
     {
-        return Password::where('email', $email)->delete();
+        return PasswordRecovery::where('email', $email)->delete();
     }
 
 
@@ -36,7 +36,7 @@ class TokenRepository
 
     public static function exists($email, $token)
     {
-        $data = Password::where('email', $email)->where('token', $token)->first();
+        $data = PasswordRecovery::where('email', $email)->where('token', $token)->first();
 
         $count = count($data);
 

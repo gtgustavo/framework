@@ -1,12 +1,13 @@
 <?php
 
-use \App\Helpers\Migration\Migration;
+use App\Helpers\Migration\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class Password extends Migration
+class PasswordResetMigration extends Migration
 {
     public function up()
     {
-        $this->schema->create('password_resets', function(Illuminate\Database\Schema\Blueprint $table){
+        $this->schema->create('password_resets', function(Blueprint $table){
             $table->increments('id', 11);
             $table->string('email')->index();
             $table->string('token')->index();

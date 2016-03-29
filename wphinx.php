@@ -11,8 +11,8 @@ try {
 
 return [
     'paths' => [
-        'migrations' => 'database/migrations',
-        'seeds'      => 'database/seeders'
+        'migrations' => '../../database/migrations',
+        'seeds'      => '../../database/seeders'
     ],
     'migration_base_class' => '\App\Helpers\Migration\Migration',
     'environments' => [
